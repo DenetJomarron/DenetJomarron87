@@ -33,7 +33,7 @@ namespace ProjectToShow.Models
 
         public string Name { get; set; }
 
-        [Display(Name = "Dealer #")]
+        [Display(Name = "Dealer#")]
         public string DealerNumber { get; set; }
 
         [Display(Name = "Manager Name")]
