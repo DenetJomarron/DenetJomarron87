@@ -1,0 +1,76 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My Little Project</title>
+    @Styles.Render("~/Content/css")
+
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+  
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+
+            @if (ViewBag.Info == false)
+            {
+                <div class=" row pull-right">
+                   
+                 
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("LogIn", "LogIn", "UserAccount")</li>
+                            <li>@Html.ActionLink("Register", "Register", "UserAccount")</li>
+
+                        </ul>
+
+                </div>
+            }
+            else
+            {
+                <div class=" row">
+                    <div class="col-md-10">
+                        <ul class="nav navbar-nav">
+
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Person", "Index", "Person")</li>
+                            <li>@Html.ActionLink("Vehicle", "Index", "Vehicle")</li>
+                            <li>@Html.ActionLink("Dealer", "Index", "Dealer")</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 pull-right">
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("LogIn", "LogIn", "UserAccount")</li>
+                            <li>@Html.ActionLink("Register", "Register", "UserAccount")</li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Example Project</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jquery")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

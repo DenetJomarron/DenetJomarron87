@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ProjectToShow.Models.UserAccountViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    var userList = ViewBag.UserList;
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            UserName
+        </th>
+
+        <th></th>
+    </tr>
+    @if (userList.Count == 0)
+    {
+        <tr>
+            <td>
+                The
+            </td>
+            <td>
+                user
+            </td>
+            <td>
+                list
+            </td>
+            <td>
+                is empty.
+            </td>
+           
+        </tr>
+
+    }
+    else
+    {
+
+
+        foreach (var item in userList)
+        {
+            <tr>
+                <td>
+                    item.FirstName
+                </td>
+                <td>
+                    item.LastName
+                </td>
+                <td>
+                  item.Email
+                </td>
+                <td>
+                   item.UserName
+                </td>
+
+            </tr>
+        }
+    }
+    </table>

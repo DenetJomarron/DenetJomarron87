@@ -1,0 +1,94 @@
+﻿@model IEnumerable<ProjectToShow.Models.VehicleViewModel>
+
+@{
+    ViewBag.Title = "Vehicle List";
+    var vehicleList = ViewBag.VehicleList;
+}
+
+    <div class="row">
+        <div class=" col-md-10">
+            <h2>Vehicle</h2>
+        </div>
+        <div class=" col-md-2" style="padding-top :30px">
+            <input type="button" value="Information"  id="InformationButton"  href="@Url.Action("Information", "Vehicle")"/>
+
+        </div>
+    </div>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Make
+
+        </th>
+        <th>
+            Year
+        </th>
+        <th>
+            Color
+
+        </th>
+        <th>
+            Miles
+        </th>
+
+        <th></th>
+    </tr> @if (vehicleList.Count == 0)
+    {
+        <tr>
+            <td>
+                The
+            </td>
+            <td>
+                Vehicle
+            </td>
+            <td>
+                list
+            </td>
+            <td>
+                is  empty.
+            </td>
+
+        </tr>
+
+    }
+    else
+    {
+
+        foreach (var item in vehicleList)
+        {
+            <tr>
+                <td>
+                    @item.Make
+                </td>
+                <td>
+                    @item.Year
+                </td>
+                <td>
+                    @item.Color
+                </td>
+                <td>
+                    @item.Miles
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    }
+</table>
+
+@section Scripts {
+
+    @Scripts.Render("~/Scripts/Vehicle/vehicle.js")
+
+
+}
