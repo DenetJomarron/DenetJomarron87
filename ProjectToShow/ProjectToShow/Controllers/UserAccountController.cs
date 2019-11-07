@@ -91,11 +91,13 @@ namespace ProjectToShow.Controllers
                 {
                     Session["UserId"] = user.UserId.ToString();
                     Session["UserName"] = user.UserName.ToString();
+                  
                     return RedirectToAction("LoggedIn");
+                    
                 }
                 else
                 {
-                    ModelState.AddModelError("", "UseName or Password is wrong");
+                    ModelState.AddModelError("", "Use Name or Password is wrong. Please if you have not account yet, please go to Register");
                 }
             }
                 return View();
@@ -103,7 +105,8 @@ namespace ProjectToShow.Controllers
 
         public ActionResult LoggedIn() 
         {
-          if(Session["UserId"] != null)
+            
+            if (Session["UserId"] != null)
             {
                 return RedirectToAction("Index","Home");
             }
@@ -112,6 +115,18 @@ namespace ProjectToShow.Controllers
                 return RedirectToAction("LogIn");
             }
         
+        }
+
+
+        public ActionResult LogOut()
+        {
+            if (ModelState.IsValid)
+            {
+                Session.Clear();
+                return RedirectToAction("LogIn");
+                
+            }
+            return View();
         }
 
     }

@@ -1,5 +1,6 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    
 }
 @if (Session["UserId"] != null)
 {
@@ -10,15 +11,9 @@
     <div class="content-wrapper">
         <hgroup class="title">
             <h1>@ViewBag.Title.</h1>
-            <h2>@ViewBag.Message</h2>
+            <h5 class="pull-right">@ViewBag.Message  @Session["UserName"]</h5>
         </hgroup>
     </div>
 </div>
 
-<div class="row">
-
-
-
-
-</div>
 }

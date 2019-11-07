@@ -16,9 +16,11 @@ namespace ProjectToShow.Models
         public int UserId { get; set; }
 
         [Required(ErrorMessage = "First Name is required.")]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Last Name is required.")]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         [Required(ErrorMessage = "Email is required.")]
@@ -26,6 +28,7 @@ namespace ProjectToShow.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "UserName is required.")]
+        [Display(Name = "User Name")]
         public string UserName { get; set; }
 
 
@@ -33,8 +36,10 @@ namespace ProjectToShow.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
+
         [Compare("Password", ErrorMessage = "Please Confirm your password.")]
         [DataType(DataType.Password)]
+        [Display(Name = "Confirm PassWord")]
         public string ConfirmPassWord { get; set; }
 
         public UserAccount ToUserAccount(UserAccount userAccountObj) 
@@ -66,6 +71,7 @@ namespace ProjectToShow.Models
         {
 
         }
+        [Display(Name = "User Name")]
         [Required(ErrorMessage = "UserName is required.")]
         public string UserName { get; set; }
 
